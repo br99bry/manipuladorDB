@@ -97,4 +97,26 @@ public class ClienteDAO {
         return result;
     }
     
+    
+    public int buscarSiguienteId(){
+        int clienteUltimo = 0;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        Connection conexion = Conexion.init();
+        String sqlQuery = "select ClienteID from Cliente order by ClienteID desc limit 1";
+        
+        try{
+            stm = conexion.prepareStatement(sqlQuery);
+            rs = stm.executeQuery();
+            rs.next();
+            clienteUltimo = rs.getInt("ClienteID");
+            
+            rs.close();
+            stm.close();
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        
+        return clienteUltimo+1;
+    }
 }
