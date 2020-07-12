@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="aplicacion.FXMLTablaProductoController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+
+
+<Text text="productoMarca(String):" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+<TextField fx:id="productoMarca" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+<Text text="productoModelo(String):" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+<TextField fx:id="productoModelo" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+<Text text="productoColor(String):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+<TextField fx:id="productoColor" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+<Text text="productoTipoDispositivo(int):" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+<TextField fx:id="productoTipoDispositivo" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+
+<Text text="productoPrecio(Double):" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+<TextField fx:id="productoPrecio" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+<Text text="productoCompania(int):" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+<TextField fx:id="productoCompania" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+<Text text="productoMaterial(String):" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+<TextField fx:id="productoMaterial" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+
+<Text text="productoTipoCarga(int):" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+<TextField fx:id="productoTipoCarga" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+
+<Text text="productoDescripcion(int):" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+<TextField fx:id="productoDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+
+<Text text="Boton --:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+<Button text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="11" onAction="#handleButtonAction"/>
+</GridPane>
