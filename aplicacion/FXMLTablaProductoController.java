@@ -6,6 +6,7 @@
 package aplicacion;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,20 +43,23 @@ public class FXMLTablaProductoController implements Initializable {
    public void muestraTabla(){
    listaProducto= FXCollections.observableArrayList();
    
-   ProductoDAO productoDAO = new ProductoDAO();
    
-   for(int i=1;i<4;i++){
-       Producto producto = new Producto();
-        producto = productoDAO.buscarProducto(i);
-        listaProducto.add(producto);
+   
+   
+       
+       ArrayList<Producto> productos = new ArrayList<Producto>();
+       ProductoDAO productoDAO = new ProductoDAO();
+       
+        productos = productoDAO.buscarProductos();
         
-        /*try {
-            //Ponemos a "Dormir" el programa durante los ms que queremos
-            Thread.sleep(1000);
-         } catch (Exception e) {
-            System.out.println(e);
-         }*/
-   }
+        for (int i = 0; i < productos.size(); i++) {
+            
+            listaProducto.add(productos.get(i));
+        }
+        
+       
+        
+   
    
    
    
@@ -109,7 +113,16 @@ public class FXMLTablaProductoController implements Initializable {
         productoDAO.insertarProducto(producto);
         
         System.out.println("Insercion exitosa");
-     
+        muestraTabla();
+        productoMarca.setText("");
+        productoModelo.setText("");
+        productoColor.setText("");
+        productoTipoDispositivo.setText("");
+        productoPrecio.setText("");
+        productoCompania.setText("");
+        productoMaterial.setText("");
+        productoTipoCarga.setText("");
+        productoDescripcion.setText("");
     }
     
    

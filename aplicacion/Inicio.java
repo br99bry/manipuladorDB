@@ -19,8 +19,8 @@ public class Inicio extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("FXMLProducto.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLCliente.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLProducto.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLCliente.fxml"));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

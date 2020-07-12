@@ -2,6 +2,7 @@
 package modelo;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /*
 Esta clase servira para hacer las converiones necesarias y operaciones 
@@ -55,6 +56,50 @@ public class ProductoDAO {
         }
         
         return producto;
+    }
+    
+    public ArrayList<Producto> buscarProductos(){
+        ArrayList<Producto> lista = new ArrayList<>();
+        
+        //la respuesta de la base de datos vendra en un objeto ResultSet
+        ResultSet rs = null;
+        //creamos la cadena de texto que almacena el query solicitado a la base de datos
+        String sqlQuery = "select * from Producto";
+        //guardamos una conexion con nuestra base de datos en la variable conexion
+        Connection conexion = Conexion.init();
+        //con este objeto podemos configurar el query
+        PreparedStatement stm = null;
+        
+        try{
+            //agregamos el query al objeto que se encargara de operarlo y lo configuramos
+            stm = conexion.prepareStatement(sqlQuery);
+            
+            //ejecutamos y guardamos la respuesta en rs 
+            rs = stm.executeQuery();
+            //obtenemos los datos del registro de la BD y lo guardamos en un objeto Producto
+            while(rs.next()){
+                Producto producto = new Producto();
+                producto.setProductoID(rs.getInt("ProductoID"));
+                producto.setProductoMarca(rs.getString("ProductoMarca"));
+                producto.setProductoModelo(rs.getString("ProductoModelo"));
+                producto.setProductoColor(rs.getString("ProductoColor"));
+                producto.setProductoTipoDispositivo(rs.getInt("ProductoTipoDispositivo"));
+                producto.setProductoPrecio(rs.getDouble("ProductoPrecio"));
+                producto.setProductoCompania(rs.getInt("ProductoCompania"));
+                producto.setProductoMaterial(rs.getString("ProductoMaterial"));
+                producto.setProductoTipoCarga(rs.getInt("ProductoTipoCarga"));
+                producto.setProductoDescripcion(rs.getInt("ProductoDescripcion"));
+                lista.add(producto);
+            }
+            
+            rs.close();
+            stm.close();
+            
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        
+        return lista;
     }
     
     /**
