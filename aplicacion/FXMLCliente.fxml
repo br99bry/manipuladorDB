@@ -42,4 +42,5 @@
 <Text text="" fx:id="c" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
 <Text text="" fx:id="d" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
 <Text text="" fx:id="e" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+
 </GridPane>

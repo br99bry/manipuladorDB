@@ -52,6 +52,9 @@ public class FXMLClienteController implements Initializable {
     
     @FXML 
     private Text e;
+    
+    @FXML 
+    private Text f;
     /**
      * Initializes the controller class.
      */
@@ -84,5 +87,13 @@ public class FXMLClienteController implements Initializable {
         c.setText("Direccion: "+ clienteRegistrado.getClienteDireccion());
         d.setText("RFC: "+clienteRegistrado.getClienteRFC());
         e.setText("Fecha de nacimineto: "+clienteRegistrado.getFechaNacimiento());
+        f.setText("Registro Exitoso, reiniciando en 5 seg .....");
+        
+        
+        ClienteNombre.setText("");
+        ClienteDireccion.setText("");
+        ClienteRFC.setText("");
+        ClienteFechaNac.setText("");
+         
     }
 }
