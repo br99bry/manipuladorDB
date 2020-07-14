@@ -27,16 +27,8 @@ public class FXMLClienteController implements Initializable {
     
     
     @FXML 
-    private TextField ClienteNombre;
+    private TextField ClienteID;
     
-    @FXML 
-    private TextField ClienteDireccion;
-    
-    @FXML 
-    private TextField ClienteRFC;
-    
-    @FXML 
-    private TextField ClienteFechaNac;
     
     @FXML 
     private Text a;
@@ -66,34 +58,23 @@ public class FXMLClienteController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws ParseException {
-        //EL ID SE GENERA AUTOMATICAMENTE
-         SimpleDateFormat formato = new SimpleDateFormat("yyyy-dd-MM");
-         Date fechaDate = null;
-         String fecha =ClienteFechaNac.getText();
-         java.util.Date pased = formato.parse(fecha);
-         fechaDate = new Date(pased.getTime());
-         {
+        int id = Integer.parseInt(ClienteID.getText());
+         
         ClienteDAO clienteDAO = new ClienteDAO();
-        Cliente cliente = new Cliente(clienteDAO.buscarSiguienteId(),ClienteNombre.getText(),ClienteDireccion.getText(),
-        ClienteRFC.getText(),fechaDate);
-        clienteDAO.insertarCliente(cliente);
-         }
-        Cliente clienteRegistrado;
-        ClienteDAO clienteDAO2 = new ClienteDAO();
-        int id = clienteDAO2.buscarSiguienteId()-1;
-        clienteRegistrado = clienteDAO2.buscarCliente(id);
-        a.setText("ID: "+clienteRegistrado.getClienteID());
-        b.setText("Nombre: "+clienteRegistrado.getClienteNombre());
-        c.setText("Direccion: "+ clienteRegistrado.getClienteDireccion());
-        d.setText("RFC: "+clienteRegistrado.getClienteRFC());
-        e.setText("Fecha de nacimineto: "+clienteRegistrado.getFechaNacimiento());
+        Cliente cliente = clienteDAO.buscarCliente(id);
+        
+
+        
+        a.setText("ID: "+cliente.getClienteID());
+        b.setText("Nombre: "+cliente.getClienteNombre());
+        c.setText("Direccion: "+ cliente.getClienteDireccion());
+        d.setText("RFC: "+cliente.getClienteRFC());
+        e.setText("Fecha de nacimineto: "+cliente.getFechaNacimiento());
         f.setText("Registro Exitoso, reiniciando en 5 seg .....");
         
         
-        ClienteNombre.setText("");
-        ClienteDireccion.setText("");
-        ClienteRFC.setText("");
-        ClienteFechaNac.setText("");
+        ClienteID.setText("");
+        
          
     }
 }
